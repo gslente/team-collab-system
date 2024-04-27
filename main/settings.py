@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+CONTRIB_APPS = []
+CUSTOM_APPS = [
+    'apps.custom_auth',
+    'apps.docs',
+    'apps.project',
+]
+INSTALLED_APPS = DJANGO_APPS + CONTRIB_APPS + CUSTOM_APPS
 
-MIDDLEWARE = [
+DJANGO_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +55,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CONTRIB_MIDDLEWARE = []
+CUSTOM_MIDDLEWARE = []
+MIDDLEWARE = DJANGO_MIDDLEWARE + CONTRIB_MIDDLEWARE + CUSTOM_MIDDLEWARE
 
 ROOT_URLCONF = 'main.urls'
 
