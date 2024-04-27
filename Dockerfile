@@ -1,6 +1,6 @@
 ### BACKEND SETUP
 # Use an official Python runtime as a parent image
-FROM python:latest AS backend
+FROM python:latest
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
