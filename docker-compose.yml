@@ -1,8 +1,35 @@
 version: '3.9'
 
 services:
+  db:
+    image: postgres:16
+    container_name: team-collab-system_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_NAME=team-collab-system_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=team-collab-system_db
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: team-collab-system_db-admin
+    ports:
+      - 8888:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=root@email.com
+      - PGADMIN_DEFAULT_PASSWORD=password
   web:
     container_name: team-collab-system_web
     build: .
     ports:
       - 8000:8000
+    environment:
+      - POSTGRES_NAME=team-collab-system_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=team-collab-system_db
+      - POSTGRES_HOST=host.docker.internal
+      - POSTGRES_PORT=5432
+    depends_on:
+      - db
