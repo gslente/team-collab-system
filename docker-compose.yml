@@ -21,9 +21,10 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=password
   web:
     container_name: team-collab-system_web
-    build: .
-    ports:
-      - 8000:8000
+    build:
+      context: ./backend
+    expose:
+      - 8000
     environment:
       - POSTGRES_NAME=team-collab-system_db
       - POSTGRES_USER=root
@@ -33,3 +34,11 @@ services:
       - POSTGRES_PORT=5432
     depends_on:
       - db
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+    ports:
+      - 1337:8080
+    depends_on:
+      - web
