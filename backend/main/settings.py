@@ -41,7 +41,7 @@ DJANGO_APPS = [
 ]
 CONTRIB_APPS = []
 CUSTOM_APPS = [
-    'apps.custom_auth',
+    'apps.core',
     'apps.docs',
     'apps.project',
 ]
@@ -150,4 +150,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ####################
 # CUSTOM SETTINGS
 ####################
-AUTH_USER_MODEL = "custom_auth.CustomUser"
+AUTH_USER_MODEL = "core.CustomUser"
