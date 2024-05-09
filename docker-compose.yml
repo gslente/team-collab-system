@@ -40,5 +40,11 @@ services:
       context: ./nginx
     ports:
       - 1337:8080
+    volumes:
+      - static_volume:/usr/src/app/team-collab-system/static
+      - media_volume:/usr/src/app/team-collab-system/media
     depends_on:
       - web
+volumes:
+  static_volume:
+  media_volume:
