@@ -5,3 +5,6 @@ from django.views.generic import TemplateView
 # Create your views here.
 class UserLoginView(TemplateView):
     template_name = 'accounts/user_login.html'
+
+class UserRegistrationView(TemplateView):
+    template_name = 'accounts/user_registration.html'
